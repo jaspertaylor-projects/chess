@@ -1,0 +1,62 @@
+.chessboard { 
+    width : 800px;
+    height : 800 px;
+    display: grid;
+    grid-template-columns: repeat(8, 100px);
+    grid-template-rows: repeat(8, 100px);
+    background-color: cornflowerblue;
+    overflow : -moz-hidden-unscrollable;
+    margin:0px auto;
+    z-index: 1;
+}
+
+.grayed-out{
+    opacity: .6;
+}
+
+.newgame {
+    position: absolute;
+    background: #222;
+    top : 58vh;
+    left : 44vw;
+    width : 12vw;
+    height: 10vh; 
+    min-width: 150px;
+    border: none;
+    border-radius: 10px;
+    color: #eee;
+    font-size: 40px;
+    font-family: 'Cookie', cursive;
+    transition: 1s;
+    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding-top: 5px;
+    z-index : 105;
+  }
+
+.check {
+    top : 45vh;
+    left : 43vw;
+    width : 14vw;
+    height: 10vh; 
+    background: #222;
+    color: #eee;
+    position: absolute;
+    display: table; 
+    overflow: hidden;
+    z-index: 100;
+    opacity : .9;
+    border-radius: 10px;
+}
+
+.mate{
+    margin: auto auto;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 34px;
+    font-family: 'Cookie', cursive;
+    display: table-cell;
+}

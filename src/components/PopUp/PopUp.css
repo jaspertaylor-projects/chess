@@ -1,0 +1,37 @@
+.popUp{
+    position : relative;
+    width: 100px;
+    height: 100px;
+    display : grid;
+    grid-template-rows: repeat(2, 50px);
+    grid-template-columns: repeat(2, 50px);
+    place-content: center;
+}
+
+
+.promote-button {
+    position : relative;
+    display : grid;
+    width: 44px;
+    height: 44px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 38px;
+    border-color : black;
+    border-radius: 5px;
+    border-width: medium;
+    background-color: rgba(255,255,255,0.4);
+    margin : 3px;
+  }
+
+.promote-button:hover{
+    cursor : grab;
+}
+
+.promoted {
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80px;
+}
