@@ -1,3 +1,11 @@
+/*
+This function updates the Piece [] so that the piece moves to its new location. It
+also handles the case where a piece is taken and when a ROOK is teleported via 
+the castling move.
+*/
+
+
+
 import { Piece } from '../constants'
 
 export function executeMove (px : number, py : number, x : number, y: number, boardState : Piece []){

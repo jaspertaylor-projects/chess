@@ -1,5 +1,11 @@
+/*
+This file contains the movement logic for all non-PAWN pieces. Castling is 
+considered a KING move, and money pieces must make sure that their path is 
+not being blocked by any pieces in the way.
+*/
+
 import { Piece , PieceType, TeamType} from '../constants'
-import Checker from './boardChecks'
+import Checker from './checker'
 
 export function isLegalRookMove(px : number, py : number, dx : number, dy : number, boardState : Piece[]) : boolean {
     if (dx === 0 || dy === 0){

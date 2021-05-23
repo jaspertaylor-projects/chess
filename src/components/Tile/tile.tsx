@@ -1,5 +1,5 @@
 import { TeamType } from '../../constants'
-import PopUp from '../PopUp/PopUp'
+import PopUp from '../Promotion/promotion'
 import './tile.css'
 
 interface Props {

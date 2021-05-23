@@ -1,9 +1,18 @@
+/*
+This class does a lot of the heavy lifting for the chess game.  Currently 
+the isValidMove also makes the move by changing the Piece [] as it checks for 
+the moves validity.  This is because once the move has been made it must use 
+the new board state to see if the move has put its own king in check which would 
+actually make the move invalid.  So, if the move returns as invalid, the board 
+state must be reset. 
+*/
+
 
 import { PieceType, TeamType, Piece, AXIS } from "../constants"
 import { isPawnNormalMove, isEnPassant, isPawnStartingMove, isFriendlyPiece, unsetEnPassant, setEnPassant } from "./pawnLogic"
 import { isLegalBishopMove, isLegalRookMove, isLegalQueenMove, isLegalKingMove, isLegalNightMove, isCastleMove} from "./pieceLogic"
-import Checker from './boardChecks'
-import {CLICKED} from '../components/PopUp/PopUp'
+import Checker from './checker'
+import {CLICKED} from '../components/Promotion/promotion'
 import { executeMove } from "./executeMove"
 
 export default class Referee{

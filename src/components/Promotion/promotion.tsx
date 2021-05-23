@@ -1,16 +1,19 @@
-import './PopUp.css'
-import React, {useState} from 'react';
+/* This is a function that is used to manage the promotion of pawns to other pieces
+ and displays a grid of 4 buttons that will promote to either a QUEEN ROOK NIGHT or BISHOP
+*/
+
+import './promotion.css'
+import {useState} from 'react';
 import {PieceType, TeamType } from '../../constants'
 
-
-
-interface Props {
-    team : TeamType
-}
 
 export let IMAGE : string = `assets/images/queen_w.png`
 export let PROMOTED_PIECE = PieceType.QUEEN
 export let CLICKED = true
+
+interface Props {
+    team : TeamType
+}
 
 export default function PopUp({team} : Props){
     const [chosen, setChosen] = useState<string | null>(null)

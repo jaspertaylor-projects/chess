@@ -1,8 +1,18 @@
+/*
+This is the file where we detrmine whether Kings are in check or checkmate.  It
+is important to remember that the isCheckMate function works by checking to see
+if there are any legal moves for a piece and returns true if there are no moves
+sometimes this can be stale mate so it must be used in conjunction with 
+isMyKingInCheck to fully determine the outcome of the game.
+
+*/
+
+
 import { PieceType, TeamType, Piece, VERTICAL_AXIS, HORIZONTAL_AXIS } from "../constants"
 import { isLegalBishopMove, isLegalRookMove, isLegalQueenMove, isLegalKingMove, isLegalNightMove} from "./pieceLogic"
 import { isPawnNormalMove } from "./pawnLogic"
-import { CLICKED } from '../components/PopUp/PopUp'
-import Referee from "./Referee"
+import { CLICKED } from '../components/Promotion/promotion'
+import Referee from "./referee"
 
 export default class Checker {   
     oldBoardState : Piece [] | null;
@@ -11,7 +21,8 @@ export default class Checker {
         this.oldBoardState = boardState
     }
 
-
+    // Makes a copy of the board state so that way we can make 'hypothetical'
+    // moves and then do a 'take back'.
     deepCopy(boardState : Piece []) {
         if (this.oldBoardState){
             for (let i = 0; i < this.oldBoardState.length; i ++){
@@ -23,6 +34,8 @@ export default class Checker {
         }
     } 
 
+    // Returns true if your team has a king in check.  The increment should usually be set to 0 
+    // but exists for checking the no castling through check rule 
     isMyKingInCheck(team : TeamType, boardState : Piece [], increment : number) : boolean {
         const enemyTeam = team === TeamType.WHITE ? TeamType.BLACK : TeamType.WHITE
         const myKing = boardState.find(p => p.team === team && p.type === PieceType.KING) 
@@ -69,6 +82,8 @@ export default class Checker {
         return false
     }
 
+
+    // Returns true if the enemy team has no legal moves
     isCheckMate(team : TeamType, boardState : Piece []): boolean{
         const ref = new Referee()
         const enemyTeam = team === TeamType.WHITE ? TeamType.BLACK : TeamType.WHITE
